@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seed Picker</title>
+  <script>
+    let seeds = [];
+
+    async function loadSeeds(file) {
+      seeds = []; // clear current seeds
+      const script = document.createElement('script');
+      script.src = file;
+      script.onload = () => {
+        displaySeed();
+      };
+      document.body.appendChild(script);
+    }
+
+    function displaySeed() {
+      if (seeds.length === 0) {
+        document.getElementById('seedDisplay').innerText = "No seeds available.";
+        return;
+      }
+      const randomIndex = Math.floor(Math.random() * seeds.length);
+      document.getElementById('seedDisplay').innerText = `Seed: ${seeds[randomIndex]}`;
+    }
+  </script>
+</head>
+<body style="text-align: center; font-family: sans-serif; margin-top: 50px;">
+  <h1>Choose a world size to get a seed!</h1>
+  <p>This seed will include both a village and a pillager outpost.</p>
+
+  <button onclick="loadSeeds('seeds_small.js')">Small World</button>
+  <button onclick="loadSeeds('seeds_medium.js')">Medium World</button>
+  <button onclick="loadSeeds('seeds_large.js')">Large World</button>
+
+  <h2 id="seedDisplay" style="margin-top: 30px;">No seed selected yet.</h2>
+</body>
+</html>
