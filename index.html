@@ -25,8 +25,34 @@
       document.getElementById('seedDisplay').innerText = `Seed: ${seeds[randomIndex]}`;
     }
   </script>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      margin-top: 50px;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    #githubLink {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    #githubLink img {
+      width: 40px;
+      height: 40px;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    #githubLink img:hover {
+      opacity: 1;
+    }
+  </style>
 </head>
-<body style="text-align: center; font-family: sans-serif; margin-top: 50px;">
+<body>
   <h1>Choose a world size to get a seed!</h1>
   <p>This seed will include both a village and a pillager outpost.</p>
 
@@ -35,5 +61,9 @@
   <button onclick="loadSeeds('seeds_large.js')">Large World</button>
 
   <h2 id="seedDisplay" style="margin-top: 30px;">No seed selected yet.</h2>
+
+  <a id="githubLink" href="https://github.com/pizza-beep/MegaPack-seed-picker" target="_blank">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+  </a>
 </body>
 </html>
